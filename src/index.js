@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import {Router, browserHistory} from 'react-router'; /*2. 라이터 부분 추가*/
+import { Router, browserHistory } from 'react-router'; /*2. 라이터 부분 추가*/
 /* 1. 리엑트 라우터로 적용해서 필요없는 부분*/
 /*import App from './components/app';*/
 import reducers from './reducers';
