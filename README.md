@@ -1,3 +1,6 @@
+모던 리액트와 리덕스 세션6
+
+<<<<<<< HEAD
 ```
 > npm install
 > npm start
