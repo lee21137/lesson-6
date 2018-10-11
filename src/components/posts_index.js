@@ -8,7 +8,7 @@ import { Link } from 'react-router'; //실제 컴포넌트
 //2.클래스 기반으로 변경
 class PostsIndex extends Component {
   componentWillMount(){
-    console.log("componentWillMount");
+  //  console.log("componentWillMount");
     this.props.fetchPosts();
   }
 
