@@ -1,5 +1,8 @@
 모던 리액트와 리덕스 세션6
 
+리덕스 폼: https://redux-form.com/7.4.2/examples/submitvalidation/
+
+
 ```
 > npm install
 > npm start

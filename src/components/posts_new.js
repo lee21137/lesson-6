@@ -1,5 +1,5 @@
 //보일러플레이트 코드 (89)
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { reduxForm }  from 'redux-form';        //connect 함수와 비슷
 import { createPost } from '../actions/index';
 import { Link } from 'react-router'; 
@@ -10,6 +10,28 @@ import { Link } from 'react-router';
 창이점은 추가적 요소가 있음 >> 오브젝트 구성요소 
 */
 class PostsNew extends Component {
+    //PostsNew.contextType -> PropTypes.object 리턴
+    //리액트는 컴포너트 부모 router context 조각을 가지고 있는 컴포너트를 찾을떄까지 검색
+    static contextTypes = {
+        router: PropTypes.object
+    };
+    /***********************************************************************************************************************
+    //리액트-라우터로 작업할때만 사용할것!()
+    //context 부모->자식 전달할필요가 없음.
+    //구체적인 전달방법없이 데이터 접근가능, 되도록이면 사용하지 말것 context API가 플럭스 안에 있고, 리액트 버전업에 변경될수도 있음.
+    ************************************************************************************************************************/
+
+    //92장 (npm install prop-types --save)
+    //createPost는 액션생정자로 프로미스 페이로드 생성, 페이로드를 호출하면 같은 프로미스를 반환
+    //프로미스가 리졸브되면, 블러그 포스트가 생성, 이때 네이게이션 발생.then
+    onSubmit(props){
+        this.props.createPost(props)
+            .then(() => {
+                // 블러그생성후 유저를 인덱스 페이지를 보냄 this.context.router.push 를 호출해서 새로운 패스로 네이게이팅
+                this.context.router.push('/');
+            });
+    }
+
     render() {
         //핼퍼
         const { fields: { title, categories, content }, handleSubmit } = this.props; //ES6
@@ -22,7 +44,8 @@ class PostsNew extends Component {
         //1 폼제출되몀 리덕스 폼이 인품 검증
         //2. 액션 생성자를 데이터와 함께 호출
         return (
-            <form onSubmit={handleSubmit(this.props.createPost)}> 
+            /*<form onSubmit={handleSubmit(this.props.createPost)}>*/
+            <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                 <h3>신규등록 post</h3>
 
                 <div className={`form-group ${title.touched && title.invalid ? 'has-danger' : ''}`}>

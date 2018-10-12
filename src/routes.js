@@ -9,7 +9,7 @@ import { Route, IndexRoute } from 'react-router';
 import App from './components/app';
 import PostsIndex from './components/Posts_index'; //
 import PostsNew from './components/Posts_new'; //
-
+import PostsShow from './components/Posts_show'; //95장-마지막
 
 const Greeting = () => {
     return <div>Hello world!!!</div>
@@ -20,7 +20,8 @@ export default (
     // {/*리액트라우터는 링크 컴포넌트를 가지고 있고 한라우트에서는 다른곳으로 연결할수 있음 */}
     <Route path="/" component={App} >
         <IndexRoute component={PostsIndex} /> 
-        <Route path="/posts/new" component={PostsNew} />    
+        <Route path="/posts/new" component={PostsNew}  />    
+        <Route path="/posts/:id" component={PostsShow} /> {/*:id 파라메터 값 설정 :id -> this.props.params.id 의미 */}
     </Route>
 );
 //{/* 포스트생성 패스 */}
