@@ -46,22 +46,22 @@ class PostsNew extends Component {
         return (
             /*<form onSubmit={handleSubmit(this.props.createPost)}>*/
             <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-                <h3>신규등록 post</h3>
+                <h3>신규등록 포스트</h3>
 
                 <div className={`form-group ${title.touched && title.invalid ? 'has-danger' : ''}`}>
-                    <label>title</label>
+                    <label>타이틀</label>
                     <input type="text" className="form-control" {...title} />
                     <div className="text-help">{title.touched ? title.error : ''}</div>
                 </div>
 
                 <div className="form-group">
-                    <label>categories</label>
+                    <label>카테고리즈</label>
                     <input type="text" className="form-control" {...categories} />
                     <div className="text-help">{categories.touched ? categories.error : ''}</div>
                 </div>
 
                 <div className={`form-group ${content.touched && content.invalid ? 'has-danger' : ''}`}>
-                    <label>content</label>
+                    <label>컨텐츠</label>
                     <textarea className="form-control" {...content} />
                     <div className="text-help">{content.touched ? content.error : ''}</div>
                 </div>

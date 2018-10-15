@@ -15,3 +15,8 @@ dependencies
 "react-dom": "^0.14.3",
 "react-redux": "4.3.0",
 "react-router": "^3.2.0",
+
+"axios": "^0.18.0", ->"axios": "0.13.1",
+
+"axios": "^0.16.2",
+
